@@ -2,6 +2,8 @@ import React, { Component }  from 'react';
 import Post from '../Post';
 
 const Myposts = (props) => {
+    let postsElements =
+        props.posts.map( p => <Post message={p.message} likeCount={p.likeCount}/>);
     return (
         <div>
             My posts
@@ -10,9 +12,7 @@ const Myposts = (props) => {
                 <button>Add Post</button>
             </div>
             <div>
-                <Post message='asdasd' likeCount='0' />
-                <Post message='sdsd' likeCount='1' />
-                <Post message='232' likeCount='343' />
+                {postsElements}
             </div>
         </div>
     )

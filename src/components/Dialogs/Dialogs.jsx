@@ -3,23 +3,17 @@ import s from './Dialogs.module.css';
 import DialogItem from './DialogsItem/DialogsItem';
 import Message from './DialogsMessage/Message';
 
-const Dialogs = () => {
+const Dialogs = (props) => {
+
+    let dialogsElements = props.state.dialogs.map ( d =>  <DialogItem name={d.name} id={d.id} />);
+    let messageElements = props.state.messages.map ( m =>   <Message message={m.message} />);
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsList}>
-                <DialogItem name='Dima' id='1' />
-                <DialogItem name='Sveta' id='2' />
-                <DialogItem name='Mila' id='3' />
-                <DialogItem name='Pisya' id='4' />
-                <DialogItem name='Shasha' id='5' />
-                <DialogItem name='Valera' id='6' />
+                {dialogsElements}
             </div>
             <div className={s.messages}>
-                <Message message='yo' />
-                <Message message='hello' />
-                <Message message='pisya' />
-                <Message message='yo' />
-                <Message message='sdsd' />
+                {messageElements}
             </div>
         </div>
     )
