@@ -1,45 +1,25 @@
 import React, { Component }  from 'react';
 import s from './Dialogs.module.css';
+import DialogItem from './DialogsItem/DialogsItem';
+import Message from './DialogsMessage/Message';
 
 const Dialogs = () => {
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsList}>
-                <div className={s.item + ' ' + s.active}>
-                    Dimych
-                </div>
-                <div className={s.item}>
-                    Sveta
-                </div>
-                <div className={s.item}>
-                    Mila
-                </div>
-                <div className={s.item}>
-                    Pisya
-                </div>
-                <div className={s.item}>
-                    KRunta
-                </div>
-                <div className={s.item}>
-                    OLegon
-                </div>
-                <div className={s.item}>
-                    Shasha
-                </div>
+                <DialogItem name='Dima' id='1' />
+                <DialogItem name='Sveta' id='2' />
+                <DialogItem name='Mila' id='3' />
+                <DialogItem name='Pisya' id='4' />
+                <DialogItem name='Shasha' id='5' />
+                <DialogItem name='Valera' id='6' />
             </div>
             <div className={s.messages}>
-                <div className={s.message}>
-                    1
-                </div>
-                <div className={s.message}>
-                   2
-                </div>
-                <div className={s.message}>
-                    3
-                </div>
-                <div className={s.message}>
-                    4
-                </div>
+                <Message message='yo' />
+                <Message message='hello' />
+                <Message message='pisya' />
+                <Message message='yo' />
+                <Message message='sdsd' />
             </div>
         </div>
     )
