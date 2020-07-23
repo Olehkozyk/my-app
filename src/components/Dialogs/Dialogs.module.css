@@ -1,0 +1,26 @@
+.dialogs {
+    display: flex;
+    align-items: center;
+    padding: 50px;
+}
+.dialogsList {
+    width: 30%;
+}
+
+
+
+.messages {
+    width: 70%;
+    padding: 40px;
+}
+
+.item {
+    padding: 20px;
+    background-color: grey;
+    color: #fff;
+    cursor: pointer;
+}
+
+.item.active {
+    color: red;
+}
