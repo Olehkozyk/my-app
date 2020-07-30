@@ -1,6 +1,7 @@
-
+const UPDATE_NEW_MESS_BODY = 'UPDATE-MESSAGE';
+const SEND_MESSAGE = 'SEND-MESSAGE';
 let store = {
-    _state : {
+    _state: {
         profilePage: {
             posts: [
                 {id: 1, message: 'dfsadf'},
@@ -25,7 +26,8 @@ let store = {
                 {id: 3, message: 'test3'},
                 {id: 4, message: 'test4'},
                 {id: 5, message: 'test5'},
-            ]
+            ],
+            newMessageTextBody: "",
         }
     },
     getState() {
@@ -38,12 +40,19 @@ let store = {
                 message: this._state.profilePage.newPostText,
                 likeCount: 0,
             }
-
             this._state.profilePage.posts.push(newPost);
             this._state.profilePage.newPostText = '';
             this._callSubscriber(this._state);
-        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+        } else if (action.type === 'UPDATE-POST') {
             this._state.profilePage.newPostText = action.newText;
+            this._callSubscriber(this._state);
+        } else if (action.type === UPDATE_NEW_MESS_BODY) {
+            this._state.dialogsPage.newMessageTextBody = action.body;
+            this._callSubscriber(this._state);
+        } else if (action.type === SEND_MESSAGE) {
+            let body = this._state.dialogsPage.newMessageTextBody;
+            this._state.dialogsPage.newMessageTextBody = '';
+            this._state.dialogsPage.messages.push({id: 6, message: body});
             this._callSubscriber(this._state);
         }
     },
@@ -55,6 +64,10 @@ let store = {
     }
 }
 
+export const addPostAction = () => ({type: 'ADD-POST'});
+export const updatePost = (text) => ({type: 'UPDATE-POST', newText: text,});
+export const updateNewMessageBodyCreator = (body) => ({type: UPDATE_NEW_MESS_BODY, body: body});
+export const sendMessageCreator = () => ({type: SEND_MESSAGE});
 export default store;
 window.store = store;
 //store - OOP
