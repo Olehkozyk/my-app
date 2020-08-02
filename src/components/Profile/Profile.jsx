@@ -7,7 +7,7 @@ const Profile = () => {
         <div className={s.profile}>
             <h2>Profile</h2>
             <ProfileInfo />
-            <MypostsContainer/>
+            <MypostsContainer />
         </div>
     )
 }
